@@ -9,6 +9,7 @@ import { Button } from './components/Button';
 import { FeaturePreview } from './components/FeaturePreview';
 import { SquadFlow } from './components/SquadFlow';
 import { PricingTiers } from './components/PricingTiers';
+import { EmailGate } from './components/EmailGate';
 
 // Utility to generate the raw text format for "NotNotes"
 const generateArtifactText = (report: ValidationReport) => {
@@ -56,8 +57,14 @@ END OF REPORT
 export default function App() {
   const [state, setState] = useState<AppState>(AppState.WELCOME);
   const [report, setReport] = useState<ValidationReport | null>(null);
+  const [showEmailGate, setShowEmailGate] = useState(false);
 
   const handleStart = () => {
+    setShowEmailGate(true);
+  };
+
+  const handleEmailSuccess = () => {
+    setShowEmailGate(false);
     setState(AppState.QUESTIONS);
   };
 
@@ -143,7 +150,7 @@ export default function App() {
               <SquadFlow />
 
               {/* Pricing Section */}
-              <PricingTiers />
+              <PricingTiers onStartFree={handleStart} />
 
               {/* Bottom CTA */}
               <div className="text-center py-16">
@@ -153,6 +160,13 @@ export default function App() {
               </div>
             </motion.div>
           )}
+
+          {/* Email Gate Modal */}
+          <EmailGate
+            isOpen={showEmailGate}
+            onClose={() => setShowEmailGate(false)}
+            onSuccess={handleEmailSuccess}
+          />
 
           {state === AppState.QUESTIONS && (
             <motion.div

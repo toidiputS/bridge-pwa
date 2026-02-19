@@ -1,6 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+interface PricingTiersProps {
+    onStartFree: () => void;
+}
+
+const STRIPE_NODE_LINK = import.meta.env.VITE_STRIPE_NODE_LINK || '#';
+
 const tiers = [
     {
         name: 'Free',
@@ -15,6 +21,7 @@ const tiers = [
         excluded: ['Memory', 'NotNotes', 'Oracle'],
         highlight: false,
         cta: 'Start Free',
+        action: 'free' as const,
     },
     {
         name: 'Node',
@@ -30,6 +37,7 @@ const tiers = [
         excluded: ['Oracle'],
         highlight: false,
         cta: 'Get Node',
+        action: 'stripe-node' as const,
     },
     {
         name: 'Squad',
@@ -45,6 +53,7 @@ const tiers = [
         highlight: true,
         cta: 'Get the Squad',
         badge: 'MOST POPULAR',
+        action: 'coming-soon' as const,
     },
     {
         name: 'Squad+',
@@ -59,6 +68,7 @@ const tiers = [
         excluded: ['Oracle'],
         highlight: false,
         cta: 'Upgrade to Squad+',
+        action: 'coming-soon' as const,
     },
     {
         name: 'Platoon',
@@ -75,6 +85,7 @@ const tiers = [
         highlight: false,
         cta: 'Go Platoon',
         altPrice: '$1,997/yr',
+        action: 'coming-soon' as const,
     },
 ];
 
@@ -87,7 +98,21 @@ const fadeUp = {
     }),
 };
 
-export const PricingTiers: React.FC = () => {
+export const PricingTiers: React.FC<PricingTiersProps> = ({ onStartFree }) => {
+    const handleClick = (action: string) => {
+        switch (action) {
+            case 'free':
+                onStartFree();
+                break;
+            case 'stripe-node':
+                window.open(STRIPE_NODE_LINK, '_blank');
+                break;
+            case 'coming-soon':
+                // Squad/Platoon links will be wired when those products are set up
+                break;
+        }
+    };
+
     return (
         <section className="w-full max-w-6xl mx-auto py-20 px-4">
             {/* Section Header */}
@@ -171,12 +196,15 @@ export const PricingTiers: React.FC = () => {
 
                         {/* CTA Button */}
                         <button
-                            className={`mt-5 w-full py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${tier.highlight
+                            onClick={() => handleClick(tier.action)}
+                            className={`mt-5 w-full py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${tier.highlight
                                     ? 'bg-bridge-gold text-bridge-dark hover:bg-bridge-gold/90 shadow-[0_0_15px_rgba(255,215,0,0.2)]'
-                                    : 'bg-white/5 text-white/70 hover:bg-white/10 border border-white/10'
+                                    : tier.action === 'coming-soon'
+                                        ? 'bg-white/5 text-white/40 border border-white/5 cursor-default'
+                                        : 'bg-white/5 text-white/70 hover:bg-white/10 border border-white/10'
                                 }`}
                         >
-                            {tier.cta}
+                            {tier.action === 'coming-soon' ? `${tier.cta} — Soon` : tier.cta}
                         </button>
                     </motion.div>
                 ))}

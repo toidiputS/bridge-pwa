@@ -10,6 +10,7 @@ import { FeaturePreview } from './components/FeaturePreview';
 import { SquadFlow } from './components/SquadFlow';
 import { PricingTiers } from './components/PricingTiers';
 import { EmailGate } from './components/EmailGate';
+import { PlatoonOverview } from './components/PlatoonOverview';
 
 // Utility to generate the raw text format for "NotNotes"
 const generateArtifactText = (report: ValidationReport) => {
@@ -148,6 +149,9 @@ export default function App() {
 
               {/* Squad Flow Section */}
               <SquadFlow />
+
+              {/* Platoon Ecosystem Section */}
+              <PlatoonOverview />
 
               {/* Pricing Section */}
               <PricingTiers onStartFree={handleStart} />

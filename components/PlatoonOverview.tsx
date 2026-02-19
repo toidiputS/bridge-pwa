@@ -16,9 +16,9 @@ const squads = [
     { name: 'Capital Floor', nodes: 6, focus: 'Capital / Risk / Pricing / Profit', color: '#dc2626', domain: 'itsai.services', active: false },
     { name: 'Growth Engine', nodes: 9, focus: 'Growth / Acquisition / Launch / Distribution', color: '#2563eb', domain: 'itsaiagents.online', active: false },
     { name: 'Cash Velocity', nodes: 11, focus: 'Sales / Conversion / DMs / Cash Events', color: '#06b6d4', domain: 'itsai.chat', active: true },
-    { name: 'Trust Shield', nodes: 4, focus: 'Support / Trust / PR / Compliance', color: '#059669', domain: 'itsai.help', active: false },
+    { name: 'Trust Shield', nodes: 6, focus: 'Trust / Support / PR / Compliance', color: '#059669', domain: 'itsai.help', active: false },
     { name: 'Brand Alive', nodes: 6, focus: 'Brand / Creative / Community / Identity', color: '#db2777', domain: 'itsai.life', active: false },
-    { name: 'Intel Core', nodes: 4, focus: 'Knowledge / Intelligence / Competitive Research', color: '#ca8a04', domain: 'itsai.wiki', active: false },
+    { name: 'Intel Core', nodes: 6, focus: 'Knowledge / Intelligence / Competitive Research', color: '#ca8a04', domain: 'itsai.wiki', active: false },
     { name: 'Signal', nodes: 5, focus: 'SEO / Content Authority / Search Visibility', color: '#84cc16', domain: 'itsai.blog', active: false },
     { name: 'Convert', nodes: 5, focus: 'E-commerce / Offer Pages / Sales Assets / Checkout', color: '#b45309', domain: 'itsai.store', active: false },
 ];
@@ -38,10 +38,10 @@ export const PlatoonOverview: React.FC = () => {
                 <div className="h-px w-16 bg-bridge-gold/50 mx-auto mb-4" />
                 <span className="text-bridge-gold text-xs uppercase tracking-[0.3em]">The Full System</span>
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mt-4">
-                    52 Nodes. 10 Squads. 1 Oracle.
+                    67 Nodes. 10 Squads. 1 Oracle.
                 </h2>
                 <p className="text-bridge-subtext mt-3 max-w-xl mx-auto">
-                    What you just saw is one squad. The full Platoon is 52 AI-powered sovereign nodes
+                    What you just saw is one squad. The full Platoon is 67 AI-powered sovereign nodes
                     covering every stage of building, launching, and scaling a business — each producing
                     a finished artifact you can execute on immediately.
                 </p>
@@ -88,8 +88,8 @@ export const PlatoonOverview: React.FC = () => {
                         variants={fadeUp}
                         custom={i * 0.4 + 2}
                         className={`rounded-xl p-4 border text-center transition-all group cursor-default ${squad.active
-                            ? 'border-opacity-40 shadow-[0_0_25px_rgba(6,182,212,0.08)]'
-                            : 'border-white/5 hover:border-white/10'
+                                ? 'border-opacity-40 shadow-[0_0_25px_rgba(6,182,212,0.08)]'
+                                : 'border-white/5 hover:border-white/10'
                             }`}
                         style={{
                             backgroundColor: squad.active ? `${squad.color}08` : 'rgba(255,255,255,0.02)',
@@ -169,7 +169,7 @@ export const PlatoonOverview: React.FC = () => {
                     <div className="h-px bg-white/5 my-5" />
                     <div className="flex flex-wrap justify-center gap-8 text-center">
                         <div>
-                            <span className="text-2xl font-bold text-white">52</span>
+                            <span className="text-2xl font-bold text-white">67</span>
                             <span className="block text-[10px] text-bridge-subtext uppercase tracking-wider mt-1">Sovereign Nodes</span>
                         </div>
                         <div>

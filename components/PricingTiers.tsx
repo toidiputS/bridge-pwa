@@ -74,9 +74,9 @@ const tiers = [
         name: 'Platoon',
         price: '$297',
         period: '/mo',
-        description: 'All 52 nodes. Everything.',
+        description: 'All 67 nodes. Everything.',
         features: [
-            'All 52 nodes',
+            'All 67 nodes',
             'BooksOS memory',
             'NotNotes',
             'Oracle AI assistant',

@@ -74,7 +74,7 @@ export const PlatoonOverview: React.FC = () => {
 
             {/* Connecting line from Oracle to grid */}
             <div className="flex justify-center mb-6">
-                <div className="w-px h-10 bg-gradient-to-b from-white/10 to-transparent" />
+                <div className="w-px h-10 bg-linear-to-b from-white/10 to-transparent" />
             </div>
 
             {/* Squad Grid */}
@@ -88,8 +88,8 @@ export const PlatoonOverview: React.FC = () => {
                         variants={fadeUp}
                         custom={i * 0.4 + 2}
                         className={`rounded-xl p-4 border text-center transition-all group cursor-default ${squad.active
-                                ? 'border-opacity-40 shadow-[0_0_25px_rgba(6,182,212,0.08)]'
-                                : 'border-white/5 hover:border-white/10'
+                            ? 'border-opacity-40 shadow-[0_0_25px_rgba(6,182,212,0.08)]'
+                            : 'border-white/5 hover:border-white/10'
                             }`}
                         style={{
                             backgroundColor: squad.active ? `${squad.color}08` : 'rgba(255,255,255,0.02)',

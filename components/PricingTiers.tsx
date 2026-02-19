@@ -43,10 +43,10 @@ const tiers = [
         name: 'Squad',
         price: '$97',
         period: ' flat',
-        description: 'The full 5-node system',
+        description: 'The full squad, unlocked',
         features: [
-            'All 5 squad nodes',
-            '5 finished artifacts',
+            'Every node in the squad',
+            'All finished artifacts',
             'Complete idea-to-cash system',
         ],
         excluded: ['Memory', 'NotNotes', 'Oracle'],
@@ -61,7 +61,7 @@ const tiers = [
         period: '/mo',
         description: 'Squad with full power',
         features: [
-            'All 5 squad nodes',
+            'Every node in the squad',
             'Memory (persistent context)',
             'NotNotes integration',
         ],
@@ -145,8 +145,8 @@ export const PricingTiers: React.FC<PricingTiersProps> = ({ onStartFree }) => {
                         variants={fadeUp}
                         custom={i + 1}
                         className={`relative rounded-2xl p-5 border flex flex-col transition-all ${tier.highlight
-                                ? 'bg-bridge-gold/5 border-bridge-gold/40 shadow-[0_0_40px_rgba(255,215,0,0.08)]'
-                                : 'bg-bridge-card/60 border-white/5 hover:border-white/10'
+                            ? 'bg-bridge-gold/5 border-bridge-gold/40 shadow-[0_0_40px_rgba(255,215,0,0.08)]'
+                            : 'bg-bridge-card/60 border-white/5 hover:border-white/10'
                             }`}
                     >
                         {/* Badge */}
@@ -198,10 +198,10 @@ export const PricingTiers: React.FC<PricingTiersProps> = ({ onStartFree }) => {
                         <button
                             onClick={() => handleClick(tier.action)}
                             className={`mt-5 w-full py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${tier.highlight
-                                    ? 'bg-bridge-gold text-bridge-dark hover:bg-bridge-gold/90 shadow-[0_0_15px_rgba(255,215,0,0.2)]'
-                                    : tier.action === 'coming-soon'
-                                        ? 'bg-white/5 text-white/40 border border-white/5 cursor-default'
-                                        : 'bg-white/5 text-white/70 hover:bg-white/10 border border-white/10'
+                                ? 'bg-bridge-gold text-bridge-dark hover:bg-bridge-gold/90 shadow-[0_0_15px_rgba(255,215,0,0.2)]'
+                                : tier.action === 'coming-soon'
+                                    ? 'bg-white/5 text-white/40 border border-white/5 cursor-default'
+                                    : 'bg-white/5 text-white/70 hover:bg-white/10 border border-white/10'
                                 }`}
                         >
                             {tier.action === 'coming-soon' ? `${tier.cta} — Soon` : tier.cta}
@@ -227,7 +227,7 @@ export const PricingTiers: React.FC<PricingTiersProps> = ({ onStartFree }) => {
                     ))}
                 </div>
                 <p className="text-bridge-subtext text-sm mt-4 max-w-md mx-auto">
-                    5 precision tools. Run them once. Get 5 finished artifacts. Execute. Done.
+                    Precision tools. Run them. Get finished artifacts. Execute. Done.
                 </p>
             </motion.div>
 
